@@ -6,7 +6,7 @@ class Solution:
         for j in range(len(nums)):
             if nums[j] in numberDictionary and j != numberDictionary[nums[j]]:
                 return [numberDictionary[nums[j]], j]
-        #hiiiiiiiiiii
+        #hiiiiiiiiiiii
                 
         
         
