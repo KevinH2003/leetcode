@@ -3,7 +3,7 @@ class Solution:
         nums.sort()
         i = 0
         j = k - 1
-        minimum = nums[j] - nums[i]
+        minimum = float("inf")
         
         while j < len(nums):
             minimum = min(minimum, nums[j] - nums[i])
