@@ -1,8 +1,7 @@
 class Solution:
     def minimumDifference(self, nums: List[int], k: int) -> int:
         nums.sort()
-        i = 0
-        j = k - 1
+        i, j = 0, k - 1
         minimum = float("inf")
         
         while j < len(nums):
