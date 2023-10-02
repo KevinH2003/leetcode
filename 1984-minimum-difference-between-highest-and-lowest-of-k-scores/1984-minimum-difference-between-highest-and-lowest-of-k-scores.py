@@ -3,13 +3,11 @@ class Solution:
         nums.sort()
         i = 0
         j = k - 1
-        min = nums[j] - nums[i]
+        minimum = nums[j] - nums[i]
         
         while j < len(nums):
-            diff = nums[j] - nums[i]
-            if diff < min:
-                min = diff
+            minimum = min(minimum, nums[j] - nums[i])
             i += 1
             j += 1
             
-        return min
+        return minimum
