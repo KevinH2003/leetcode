@@ -1,9 +1,7 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         def b_search(nums, target, left, right):
-            if right < 0 or left >= len(nums):
-                return -1
-            if left == right:
+            if left >= right:
                 return left if nums[left] == target else -1
             
             mid = (left + right) // 2
