@@ -4,16 +4,15 @@ class Solution:
         right = 0
         
         longest = 0
-        
         visited = set()
+        
         while right < len(s):
             if s[right] in visited:
                 longest = max(right - left, longest)
                 
-                while s[left] != s[right]:
+                while s[right] in visited:
                     visited.remove(s[left])
                     left += 1
-                left += 1
             
             visited.add(s[right])
             right += 1
