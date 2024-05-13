@@ -1,11 +1,12 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        out = [1] * n # 24 12 8 6
+        out = [1 for i in range(n)]
         
-        leftgoing = 1 # 6
-        rightgoing = 1 # 24
-        for i in range(0, n):
+        leftgoing = 1
+        rightgoing = 1
+        
+        for i in range(n):
             j = n - i - 1
             
             out[i] *= leftgoing
@@ -15,3 +16,6 @@ class Solution:
             rightgoing *= nums[j]
             
         return out
+            
+            
+            
