@@ -5,7 +5,6 @@ class Solution:
         max = 0
         
         while right < len(prices):
-            print(left, right)
             if prices[right] < prices[left]:
                 left = right
                 
