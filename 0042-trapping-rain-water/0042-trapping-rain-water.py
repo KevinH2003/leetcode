@@ -2,8 +2,7 @@ class Solution:
     def trap(self, height: List[int]) -> int:
         n = len(height)
         
-        maxleft = 0
-        maxright = 0
+        maxleft, maxright = 0, 0
         
         left = 0
         right = n - 1
@@ -12,14 +11,20 @@ class Solution:
         
         while left <= right:
             if maxleft < maxright:
-                out += max(0, maxleft - height[left])
-                if maxleft < height[left]:
-                    maxleft = height[left]
+                heightleft = height[left]
+                out += max(0, maxleft - heightleft)
+                
+                if maxleft < heightleft:
+                    maxleft = heightleft
+                    
                 left += 1
             else:
+                heightright = height[right]
                 out += max(0, maxright - height[right])
+                
                 if maxright < height[right]:
                     maxright = height[right]
+                    
                 right -= 1
             
         return out
