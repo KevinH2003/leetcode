@@ -7,14 +7,15 @@ class Solution:
         visited = set()
         
         while right < len(s):
-            if s[right] in visited:
+            curr = s[right]
+            if curr in visited:
                 longest = max(right - left, longest)
                 
-                while s[right] in visited:
+                while curr in visited:
                     visited.remove(s[left])
                     left += 1
             
-            visited.add(s[right])
+            visited.add(curr)
             right += 1
             
         longest = max(right - left, longest)
