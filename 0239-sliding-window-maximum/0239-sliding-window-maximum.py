@@ -1,27 +1,30 @@
-from sortedcontainers import SortedDict
+from collections import deque
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        counts = SortedDict()
+        q = deque()
         out = []
         
-        for i in range(k - 1):
-            counts[nums[i]] = counts.get(nums[i], 0) + 1
-        
+        for i in range(0, k - 1):
+            while len(q) > 0 and nums[i] > q[-1]:
+                q.pop()
+            
+            q.append(nums[i])
+            
         for i in range(len(nums) - k + 1):
             j = i + k - 1
             
             left = nums[i]
             right = nums[j]
             
-            counts[right] = counts.get(right, 0) + 1
+            while len(q) > 0 and right > q[-1]:
+                q.pop()
+                
+            q.append(right)
+            out.append(q[0])
             
-            out.append(counts.peekitem()[0])
-            
-            counts[left] -= 1
-            
-            if counts[left] == 0:
-                counts.pop(left)
+            if left == q[0]:
+                q.popleft()
             
         return out
             
