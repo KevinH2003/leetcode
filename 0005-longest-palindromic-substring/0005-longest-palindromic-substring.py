@@ -6,6 +6,9 @@ class Solution:
             for i in range(len(s) - length):
                 j = i + length
                 
+                if s[i:j + 1] in palindromes:
+                    continue
+                
                 if i == j:
                     palindromes.add(s[i])
                         
